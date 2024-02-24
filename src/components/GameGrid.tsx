@@ -1,34 +1,7 @@
-import httpClient from '@/services/http-client'
-import { useEffect, useState } from 'react'
-
-interface Game {
-  id: number
-  name: string
-}
-
-interface FetchGamesResponse {
-  count: number
-  results: Game[]
-}
+import useGames from '@/hooks/useGames'
 
 function GameGrid() {
-  const [games, setGames] = useState<Game[]>([])
-  const [error, setError] = useState<Error | null>(null)
-  const [isLoading, setIsLoading] = useState(false)
-
-  useEffect(() => {
-    setIsLoading(true)
-    httpClient
-      .get<FetchGamesResponse>('/games')
-      .then((res) => {
-        setIsLoading(false)
-        setGames(res.data.results)
-      })
-      .catch((error) => {
-        setIsLoading(false)
-        setError(error)
-      })
-  }, [])
+  const { games, error, isLoading } = useGames()
 
   if (error) return <p>{error.message}</p>
 
