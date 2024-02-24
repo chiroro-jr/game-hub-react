@@ -18,15 +18,15 @@ interface Props {
 
 const getPlatformIcon = (slug: string) => {
   const platformIcons: { [key: string]: ReactElement } = {
-    playstation: <BsPlaystation size="24px" />,
-    xbox: <BsXbox size="24px" />,
-    nintendo: <BsNintendoSwitch size="24px" />,
-    pc: <BsWindows size="24px" />,
-    ios: <MdPhoneIphone size="24px" />,
-    android: <BsAndroid size="24px" />,
-    linux: <FaLinux size="24px" />,
-    mac: <BsApple size="24px" />,
-    web: <BsGlobe size="24px" />,
+    playstation: <BsPlaystation size="22px" />,
+    xbox: <BsXbox size="22px" />,
+    nintendo: <BsNintendoSwitch size="22px" />,
+    pc: <BsWindows size="22px" />,
+    ios: <MdPhoneIphone size="22px" />,
+    android: <BsAndroid size="22px" />,
+    linux: <FaLinux size="22px" />,
+    mac: <BsApple size="22px" />,
+    web: <BsGlobe size="22px" />,
   }
 
   return platformIcons[slug]
@@ -34,7 +34,7 @@ const getPlatformIcon = (slug: string) => {
 
 function PlatformIconsList({ platforms }: Props) {
   return (
-    <ul className="flex gap-2">
+    <ul className="flex gap-1.5">
       {platforms.map(({ platform }) => (
         <li key={platform.id}>{getPlatformIcon(platform.slug)}</li>
       ))}
