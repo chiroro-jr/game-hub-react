@@ -1,9 +1,10 @@
 import httpClient from '@/services/http-client'
 import { useEffect, useState } from 'react'
 
-interface Game {
+export interface Game {
   id: number
   name: string
+  background_image: string
 }
 
 interface FetchGamesResponse {
