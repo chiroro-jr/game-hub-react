@@ -5,11 +5,14 @@ const ColorModeSwitch = () => {
   const { theme, setTheme } = useTheme()
 
   return (
-    <Switch
-      checked={theme === 'dark'}
-      id="color-mode-switch"
-      onCheckedChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-    />
+    <div className="flex items-center gap-2">
+      <Switch
+        checked={theme === 'dark'}
+        id="color-mode-switch"
+        onCheckedChange={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      />
+      <span className="whitespace-nowrap font-semibold">Dark Mode</span>
+    </div>
   )
 }
 
