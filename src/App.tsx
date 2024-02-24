@@ -1,9 +1,13 @@
+import NavBar from './components/NavBar'
+
 function App() {
   return (
     <div className="main-layout">
-      <div className="nav bg-slate-500">Nav</div>
-      <div className="aside bg-slate-600">Aside</div>
-      <div className="main bg-slate-700">Main</div>
+      <div className="nav">
+        <NavBar />
+      </div>
+      <div className="aside">Aside</div>
+      <div className="main">Main</div>
     </div>
   )
 }
