@@ -3,7 +3,7 @@ import ColorModeSwitch from './ColorModeSwitch'
 
 const NavBar = () => {
   return (
-    <nav className="flex items-center justify-between p-2.5">
+    <nav className="flex items-center justify-between">
       <img className="h-16" src={logoUrl} alt="game hub logo" />
       <ColorModeSwitch />
     </nav>

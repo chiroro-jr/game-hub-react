@@ -5,13 +5,13 @@ import NavBar from './components/NavBar'
 function App() {
   return (
     <div className="main-layout">
-      <div className="nav">
+      <div className="nav p-3.5">
         <NavBar />
       </div>
-      <div className="aside">
+      <div className="aside p-[18px]">
         <GenresList />
       </div>
-      <div className="main">
+      <div className="main p-[18px]">
         <GameGrid />
       </div>
     </div>

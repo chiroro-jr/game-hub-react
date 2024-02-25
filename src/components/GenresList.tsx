@@ -1,4 +1,5 @@
 import useGenres from '@/hooks/useGenres'
+import { cropImage } from '@/services/image-url'
 
 function GenresList() {
   const { genres, error, isLoading } = useGenres()
@@ -8,9 +9,17 @@ function GenresList() {
   if (isLoading) return <p>Loading genres</p>
 
   return (
-    <ul>
+    <ul className="space-y-2.5">
       {genres.map((genre) => (
-        <li key={genre.id}>{genre.name}</li>
+        <li key={genre.id}>
+          <a href="#" className="flex items-center gap-1.5 hover:underline">
+            <img
+              className="h-8 w-8 rounded-md object-cover"
+              src={cropImage(genre.image_background)}
+            />
+            <span className="wrap">{genre.name}</span>
+          </a>
+        </li>
       ))}
     </ul>
   )
