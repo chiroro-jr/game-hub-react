@@ -8,6 +8,7 @@ interface Props {
   game: Game
 }
 
+// TODO: Use an AspectRatio component for the card image
 function GameCard({ game }: Props) {
   const badgeColor =
     game.metacritic > 85
