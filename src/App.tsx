@@ -7,6 +7,7 @@ import PlatformSelector from './components/PlatformSelector'
 
 function App() {
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null)
+  const [selectedPlatform, setSelectedPlatform] = useState<string | null>(null)
 
   return (
     <div className="main-layout">
@@ -21,9 +22,16 @@ function App() {
       </div>
       <div className="main space-y-4 p-[18px]">
         <div>
-          <PlatformSelector />
+          <PlatformSelector
+            onSelectPlatform={(platform: string) =>
+              setSelectedPlatform(platform)
+            }
+          />
         </div>
-        <GameGrid selectedGenre={selectedGenre} />
+        <GameGrid
+          selectedGenre={selectedGenre}
+          selectedPlatform={selectedPlatform}
+        />
       </div>
     </div>
   )
