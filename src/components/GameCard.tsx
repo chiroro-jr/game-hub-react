@@ -9,6 +9,7 @@ interface Props {
 }
 
 // TODO: Use an AspectRatio component for the card image
+// TODO: Fix badges for games that don't have a rating
 function GameCard({ game }: Props) {
   const badgeColor =
     game.metacritic > 85
