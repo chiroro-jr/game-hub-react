@@ -12,7 +12,11 @@ function App() {
   return (
     <div className="main-layout">
       <div className="nav p-3.5">
-        <NavBar />
+        <NavBar
+          onSearch={(searchTerm: string) =>
+            setGameQuery({ ...gameQuery, searchTerm })
+          }
+        />
       </div>
       <div className="aside p-[18px]">
         <GenresList
