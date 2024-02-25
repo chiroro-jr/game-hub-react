@@ -1,8 +1,13 @@
 import useGames from '@/hooks/useGames'
 import GameCard from './GameCard'
+import { Genre } from '@/hooks/useGenres'
 
-function GameGrid() {
-  const { data: games, error, isLoading } = useGames()
+interface Props {
+  selectedGenre: Genre | null
+}
+
+function GameGrid({ selectedGenre }: Props) {
+  const { data: games, error, isLoading } = useGames(selectedGenre)
 
   if (error) return <p>{error.message}</p>
 

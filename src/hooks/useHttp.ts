@@ -1,5 +1,5 @@
 import httpClient from '@/services/http-client'
-import axios from 'axios'
+import axios, { AxiosRequestConfig } from 'axios'
 import { useEffect, useState } from 'react'
 
 interface FetchDataResponse<T> {
@@ -7,34 +7,42 @@ interface FetchDataResponse<T> {
   results: T[]
 }
 
-const useHttp = <T>(url: string) => {
+const useHttp = <T>(
+  url: string,
+  requestConfig?: AxiosRequestConfig,
+  deps?: unknown[],
+) => {
   const [data, setData] = useState<T[]>([])
   const [error, setError] = useState<Error | null>(null)
   const [isLoading, setIsLoading] = useState(false)
 
-  useEffect(() => {
-    const controller = new AbortController()
-    const signal = controller.signal
+  useEffect(
+    () => {
+      const controller = new AbortController()
+      const signal = controller.signal
 
-    setIsLoading(true)
-    httpClient
-      .get<FetchDataResponse<T>>(url, {
-        signal,
-      })
-      .then((res) => {
-        setIsLoading(false)
-        setData(res.data.results)
-      })
-      .catch((error) => {
-        if (axios.isCancel(error)) return
-        setIsLoading(false)
-        setError(error)
-      })
+      setIsLoading(true)
+      httpClient
+        .get<FetchDataResponse<T>>(url, {
+          signal,
+          ...requestConfig,
+        })
+        .then((res) => {
+          setIsLoading(false)
+          setData(res.data.results)
+        })
+        .catch((error) => {
+          if (axios.isCancel(error)) return
+          setIsLoading(false)
+          setError(error)
+        })
 
-    return () => {
-      controller.abort()
-    }
-  }, [])
+      return () => {
+        controller.abort()
+      }
+    },
+    deps ? [...deps] : [],
+  )
 
   return { data, error, isLoading }
 }

@@ -1,3 +1,4 @@
+import { Genre } from './useGenres'
 import useHttp from './useHttp'
 
 export interface Platform {
@@ -14,6 +15,13 @@ export interface Game {
   parent_platforms: { platform: Platform }[]
 }
 
-const useGames = () => useHttp<Game>('/games')
+const useGames = (selectedGenre: Genre | null) =>
+  useHttp<Game>(
+    '/games',
+    {
+      params: { genres: selectedGenre?.id },
+    },
+    [selectedGenre],
+  )
 
 export default useGames
