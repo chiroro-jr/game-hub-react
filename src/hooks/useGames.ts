@@ -1,7 +1,10 @@
-import { Genre } from './useGenres'
 import useHttp from './useHttp'
 import { Platform } from './usePlatforms'
 
+export interface GameQuery {
+  genre: number | null
+  platform: number | null
+}
 export interface Game {
   id: number
   name: string
@@ -10,19 +13,16 @@ export interface Game {
   parent_platforms: { platform: Platform }[]
 }
 
-const useGames = (
-  selectedGenre: Genre | null,
-  selectedPlatform: string | null,
-) =>
+const useGames = (gameQuery: GameQuery) =>
   useHttp<Game>(
     '/games',
     {
       params: {
-        genres: selectedGenre?.id,
-        parent_platforms: selectedPlatform,
+        genres: gameQuery.genre,
+        parent_platforms: gameQuery.platform,
       },
     },
-    [selectedGenre, selectedPlatform],
+    [gameQuery],
   )
 
 export default useGames

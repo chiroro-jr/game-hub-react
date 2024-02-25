@@ -8,7 +8,7 @@ import {
 import usePlatforms from '@/hooks/usePlatforms'
 
 interface Props {
-  onSelectPlatform: (platform: string) => void
+  onSelectPlatform: (platform: number) => void
 }
 
 function PlatformSelector({ onSelectPlatform }: Props) {
@@ -21,7 +21,7 @@ function PlatformSelector({ onSelectPlatform }: Props) {
   return (
     <div className="space-y-1">
       <span className="text-sm">Filter by platform</span>
-      <Select onValueChange={(value) => onSelectPlatform(value)}>
+      <Select onValueChange={(value) => onSelectPlatform(Number(value))}>
         <SelectTrigger className="w-[180px]">
           <SelectValue placeholder="Select platform" />
         </SelectTrigger>

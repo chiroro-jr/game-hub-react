@@ -1,19 +1,13 @@
-import useGames from '@/hooks/useGames'
+import useGames, { GameQuery } from '@/hooks/useGames'
 import GameCard from './GameCard'
-import { Genre } from '@/hooks/useGenres'
 import GameCardSkeleton from './GameCardSkeleton'
 
 interface Props {
-  selectedGenre: Genre | null
-  selectedPlatform: string | null
+  gameQuery: GameQuery
 }
 
-function GameGrid({ selectedGenre, selectedPlatform }: Props) {
-  const {
-    data: games,
-    error,
-    isLoading,
-  } = useGames(selectedGenre, selectedPlatform)
+function GameGrid({ gameQuery }: Props) {
+  const { data: games, error, isLoading } = useGames(gameQuery)
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8]
 
   if (error) return <p>{error.message}</p>
