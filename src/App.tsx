@@ -5,6 +5,7 @@ import NavBar from './components/NavBar'
 import PlatformSelector from './components/PlatformSelector'
 import { GameQuery } from './hooks/useGames'
 import SortSelector from './components/SortSelector'
+import GameHeading from './components/GameHeading'
 
 function App() {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery)
@@ -26,7 +27,8 @@ function App() {
           }
         />
       </div>
-      <div className="main space-y-4 p-[18px]">
+      <div className="main space-y-5 p-[18px]">
+        <GameHeading />
         <div className="flex gap-6">
           <PlatformSelector
             onSelectPlatform={(platform: number) =>
