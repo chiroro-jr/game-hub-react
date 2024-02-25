@@ -1,5 +1,6 @@
 import useGenres, { Genre } from '@/hooks/useGenres'
 import { cropImage } from '@/services/image-url'
+import GenresListSkeleton from './GenresListSkeleton'
 
 interface Props {
   onSelectGenre: (genre: Genre) => void
@@ -11,7 +12,7 @@ function GenresList({ onSelectGenre, selectedGenre }: Props) {
 
   if (error) return null
 
-  if (isLoading) return <p>Loading genres</p>
+  if (isLoading) return <GenresListSkeleton />
 
   return (
     <ul className="space-y-2.5">
