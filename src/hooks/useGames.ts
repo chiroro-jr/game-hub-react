@@ -4,6 +4,7 @@ import { Platform } from './usePlatforms'
 export interface GameQuery {
   genre: number | null
   platform: number | null
+  sortOrder: string | null
 }
 export interface Game {
   id: number
@@ -20,6 +21,7 @@ const useGames = (gameQuery: GameQuery) =>
       params: {
         genres: gameQuery.genre,
         parent_platforms: gameQuery.platform,
+        ordering: gameQuery.sortOrder,
       },
     },
     [gameQuery],
