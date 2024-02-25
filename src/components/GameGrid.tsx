@@ -2,7 +2,7 @@ import useGames from '@/hooks/useGames'
 import GameCard from './GameCard'
 
 function GameGrid() {
-  const { games, error, isLoading } = useGames()
+  const { data: games, error, isLoading } = useGames()
 
   if (error) return <p>{error.message}</p>
 

@@ -2,7 +2,7 @@ import useGenres from '@/hooks/useGenres'
 import { cropImage } from '@/services/image-url'
 
 function GenresList() {
-  const { genres, error, isLoading } = useGenres()
+  const { data: genres, error, isLoading } = useGenres()
 
   if (error) return null
 
