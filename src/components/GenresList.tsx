@@ -6,7 +6,6 @@ interface Props {
   selectedGenre: number | null
 }
 
-// TODO: Add the genres as static data to allow for local querying
 function GenresList({ onSelectGenre, selectedGenre }: Props) {
   return (
     <div className="space-y-2.5">

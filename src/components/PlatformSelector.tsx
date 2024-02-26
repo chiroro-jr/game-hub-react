@@ -11,7 +11,6 @@ interface Props {
   onSelectPlatform: (platform: number) => void
 }
 
-// TODO: Add the platforms as static data instead of fetching from server
 function PlatformSelector({ onSelectPlatform }: Props) {
   return (
     <div className="space-y-1">
