@@ -5,7 +5,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import usePlatforms from '@/hooks/usePlatforms'
+import platforms from '@/data/platforms'
 
 interface Props {
   onSelectPlatform: (platform: number) => void
@@ -13,12 +13,6 @@ interface Props {
 
 // TODO: Add the platforms as static data instead of fetching from server
 function PlatformSelector({ onSelectPlatform }: Props) {
-  const { data: platforms, error, isLoading } = usePlatforms()
-
-  if (error) return null
-
-  if (isLoading) return null
-
   return (
     <div className="space-y-1">
       <span className="text-sm">Filter by platform</span>

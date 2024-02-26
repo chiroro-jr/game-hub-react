@@ -5,21 +5,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+import orderings from '@/data/orderings'
 
 interface Props {
   onSelectSortOrder: (sortOrder: string) => void
 }
 
 function SortSelector({ onSelectSortOrder }: Props) {
-  const sortOrders = [
-    { value: 'relevance', label: 'Relevance' },
-    { value: 'name', label: 'Name' },
-    { value: '-released', label: 'Release date' },
-    { value: '-added', label: 'Date added' },
-    { value: '-metacritic', label: 'Average rating' },
-    { value: '-popularity', label: 'Popularity' },
-  ]
-
   return (
     <div className="space-y-1">
       <span className="text-sm">Order by</span>
@@ -28,7 +20,7 @@ function SortSelector({ onSelectSortOrder }: Props) {
           <SelectValue placeholder="Relevance" />
         </SelectTrigger>
         <SelectContent className="border-none">
-          {sortOrders.map((sortOrder) => (
+          {orderings.map((sortOrder) => (
             <SelectItem key={sortOrder.label} value={sortOrder.value}>
               {sortOrder.label}
             </SelectItem>

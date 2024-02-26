@@ -1,6 +1,5 @@
-import useGenres from '@/hooks/useGenres'
 import { cropImage } from '@/services/image-url'
-import GenresListSkeleton from './GenresListSkeleton'
+import genres from '@/data/genres'
 
 interface Props {
   onSelectGenre: (genre: number) => void
@@ -9,12 +8,6 @@ interface Props {
 
 // TODO: Add the genres as static data to allow for local querying
 function GenresList({ onSelectGenre, selectedGenre }: Props) {
-  const { data: genres, error, isLoading } = useGenres()
-
-  if (error) return null
-
-  if (isLoading) return <GenresListSkeleton />
-
   return (
     <div className="space-y-2.5">
       <h2 className="text-lg font-bold">Genres</h2>
