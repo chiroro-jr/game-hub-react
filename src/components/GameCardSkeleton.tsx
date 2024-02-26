@@ -3,7 +3,7 @@ import { Skeleton } from './ui/skeleton'
 
 function GameCardSkeleton() {
   return (
-    <Card className="overflow-hidden rounded-xl border-none">
+    <Card className="overflow-hidden rounded-xl border-none shadow-md">
       <Skeleton className="h-[300px] rounded-none" />
       <CardContent className="space-y-4 p-4">
         <Skeleton className="h-8 max-w-[250px] rounded-sm" />

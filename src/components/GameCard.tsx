@@ -19,7 +19,7 @@ function GameCard({ game }: Props) {
         : 'bg-gray-500'
 
   return (
-    <Card className="overflow-hidden rounded-xl border-none">
+    <Card className="overflow-hidden rounded-xl border-none shadow-md">
       <img src={cropImage(game.background_image)} />
       <CardContent className="space-y-4 p-4">
         <CardTitle className="text-2xl">{game.name}</CardTitle>
