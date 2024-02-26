@@ -17,7 +17,7 @@ function SearchInput({ onSearch }: Props) {
   return (
     <form className="w-full" onSubmit={handleSubmit}>
       <Input
-        className="w-full rounded-full px-4 py-6"
+        className="focus-within: w-full rounded-full border-none border-card bg-card px-4 text-card transition-all hover:bg-muted focus:bg-card-foreground"
         type="text"
         name="searchTerm"
         placeholder="Search games..."
