@@ -24,10 +24,10 @@ function SortSelector({ onSelectSortOrder }: Props) {
     <div className="space-y-1">
       <span className="text-sm">Order by</span>
       <Select onValueChange={(value) => onSelectSortOrder(value)}>
-        <SelectTrigger className="w-[180px]">
+        <SelectTrigger className="w-[180px] border-none bg-card">
           <SelectValue placeholder="Relevance" />
         </SelectTrigger>
-        <SelectContent>
+        <SelectContent className="border-none">
           {sortOrders.map((sortOrder) => (
             <SelectItem key={sortOrder.label} value={sortOrder.value}>
               {sortOrder.label}

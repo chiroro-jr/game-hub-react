@@ -7,6 +7,7 @@ interface Props {
   selectedGenre: number | null
 }
 
+// TODO: Add the genres as static data to allow for local querying
 function GenresList({ onSelectGenre, selectedGenre }: Props) {
   const { data: genres, error, isLoading } = useGenres()
 
