@@ -1,4 +1,3 @@
-import { Platform } from '@/hooks/useGames'
 import {
   BsPlaystation,
   BsXbox,
@@ -11,6 +10,7 @@ import {
 import { MdPhoneIphone } from 'react-icons/md'
 import { FaLinux } from 'react-icons/fa'
 import { ReactElement } from 'react'
+import { Platform } from '@/hooks/usePlatforms'
 
 interface Props {
   platforms: { platform: Platform }[]
