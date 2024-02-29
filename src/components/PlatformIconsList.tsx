@@ -10,7 +10,7 @@ import {
 import { MdPhoneIphone } from 'react-icons/md'
 import { FaLinux } from 'react-icons/fa'
 import { ReactElement } from 'react'
-import { Platform } from '@/hooks/usePlatforms'
+import { Platform } from '@/services/platformsService'
 
 interface Props {
   platforms: { platform: Platform }[]

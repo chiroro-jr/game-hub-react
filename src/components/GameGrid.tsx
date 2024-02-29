@@ -1,6 +1,7 @@
-import useGames, { GameQuery } from '@/hooks/useGames'
+import { GameQuery } from '@/services/gamesService'
 import GameCard from './GameCard'
 import GameCardSkeleton from './GameCardSkeleton'
+import useGames from '@/hooks/useGames'
 
 interface Props {
   gameQuery: GameQuery
