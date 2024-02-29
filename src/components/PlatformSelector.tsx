@@ -5,13 +5,17 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import platforms from '@/data/platforms'
+import usePlatforms from '@/hooks/usePlatforms'
 
 interface Props {
   onSelectPlatform: (platform: number) => void
 }
 
 function PlatformSelector({ onSelectPlatform }: Props) {
+  const { data, error } = usePlatforms()
+
+  if (error) return null
+
   return (
     <div className="space-y-1">
       <span className="text-sm">Filter by platform</span>
@@ -20,7 +24,7 @@ function PlatformSelector({ onSelectPlatform }: Props) {
           <SelectValue placeholder="Select platform" />
         </SelectTrigger>
         <SelectContent className="border-none">
-          {platforms.map((platform) => (
+          {data?.results.map((platform) => (
             <SelectItem key={platform.id} value={platform.id.toString()}>
               {platform.name}
             </SelectItem>
