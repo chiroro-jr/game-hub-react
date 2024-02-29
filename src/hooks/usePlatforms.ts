@@ -1,7 +1,7 @@
 import platforms from '@/data/platforms'
 import httpClient from '@/services/http-client'
 import { useQuery } from '@tanstack/react-query'
-import { FetchDataResponse } from './useHttp'
+import { FetchDataResponse } from '@/services/http-client'
 export interface Platform {
   id: number
   slug: string

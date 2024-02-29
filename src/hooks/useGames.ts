@@ -1,6 +1,7 @@
-import useHttp from './useHttp'
+import { useQuery } from '@tanstack/react-query'
 import { Platform } from './usePlatforms'
-
+import httpClient from '@/services/http-client'
+import { FetchDataResponse } from '@/services/http-client'
 export interface GameQuery {
   genre: number | null
   platform: number | null
@@ -16,17 +17,18 @@ export interface Game {
 }
 
 const useGames = (gameQuery: GameQuery) =>
-  useHttp<Game>(
-    '/games',
-    {
-      params: {
-        genres: gameQuery.genre,
-        parent_platforms: gameQuery.platform,
-        ordering: gameQuery.sortOrder,
-        search: gameQuery.searchTerm,
-      },
-    },
-    [gameQuery],
-  )
-
+  useQuery({
+    queryKey: ['games', gameQuery],
+    queryFn: () =>
+      httpClient
+        .get<FetchDataResponse<Game>>('/games', {
+          params: {
+            genres: gameQuery.genre,
+            parent_platforms: gameQuery.platform,
+            ordering: gameQuery.sortOrder,
+            search: gameQuery.searchTerm,
+          },
+        })
+        .then((res) => res.data),
+  })
 export default useGames
