@@ -2,7 +2,7 @@ import httpClient from '@/services/http-client'
 import axios, { AxiosRequestConfig } from 'axios'
 import { useEffect, useState } from 'react'
 
-interface FetchDataResponse<T> {
+export interface FetchDataResponse<T> {
   count: number
   results: T[]
 }
