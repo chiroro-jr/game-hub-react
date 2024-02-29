@@ -1,6 +1,5 @@
 import { cropImage } from '@/services/image-url'
 import useGenres from '@/hooks/useGenres'
-import { LuLoader2 } from 'react-icons/lu'
 
 interface Props {
   onSelectGenre: (genre: number) => void
@@ -8,16 +7,13 @@ interface Props {
 }
 
 function GenresList({ onSelectGenre, selectedGenre }: Props) {
-  const { data: genres, error, isLoading } = useGenres()
+  const { data: genres, error } = useGenres()
 
   if (error) return null
 
   return (
     <div className="space-y-2.5">
       <h2 className="text-lg font-bold">Genres</h2>
-      {isLoading && (
-        <LuLoader2 size="22px" className="mr-2 h-4 w-4 animate-spin" />
-      )}
       <ul className="space-y-2.5">
         {genres?.results.map((genre) => (
           <li key={genre.id} onClick={() => onSelectGenre(genre.id)}>
