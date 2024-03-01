@@ -2,11 +2,11 @@ import { cropImage } from '@/services/image-url'
 import useGenres from '@/hooks/useGenres'
 
 interface Props {
-  onSelectGenre: (genre: number) => void
-  selectedGenre: number | null
+  onSelectGenre: (genreId: number) => void
+  selectedGenreId: number | null
 }
 
-function GenresList({ onSelectGenre, selectedGenre }: Props) {
+function GenresList({ onSelectGenre, selectedGenreId }: Props) {
   const { data: genres, error } = useGenres()
 
   if (error) return null
@@ -19,7 +19,7 @@ function GenresList({ onSelectGenre, selectedGenre }: Props) {
           <li key={genre.id} onClick={() => onSelectGenre(genre.id)}>
             <a
               href="#"
-              className={`${selectedGenre === genre.id && 'font-bold'} flex items-center gap-1.5 hover:underline`}
+              className={`${selectedGenreId === genre.id && 'font-bold'} flex items-center gap-1.5 hover:underline`}
             >
               <img
                 className="h-8 w-8 rounded-md object-cover"

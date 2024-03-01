@@ -2,8 +2,8 @@ import HttpClient from './http-client'
 import { Platform } from './platformsService'
 
 export interface GameQuery {
-  genre: number | null
-  platform: number | null
+  genreId: number | null
+  platformId: number | null
   sortOrder: string | null
   searchTerm: string | null
 }

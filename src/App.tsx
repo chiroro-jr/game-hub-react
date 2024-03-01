@@ -21,18 +21,18 @@ function App() {
       </div>
       <div className="aside p-[18px]">
         <GenresList
-          selectedGenre={gameQuery.genre}
-          onSelectGenre={(genre: number) =>
-            setGameQuery({ ...gameQuery, genre })
+          selectedGenreId={gameQuery.genreId}
+          onSelectGenre={(genreId: number) =>
+            setGameQuery({ ...gameQuery, genreId })
           }
         />
       </div>
       <div className="main space-y-5 p-[18px]">
-        <GameHeading />
+        <GameHeading gameQuery={gameQuery} />
         <div className="flex gap-6">
           <PlatformSelector
-            onSelectPlatform={(platform: number) =>
-              setGameQuery({ ...gameQuery, platform })
+            onSelectPlatform={(platformId: number) =>
+              setGameQuery({ ...gameQuery, platformId })
             }
           />
 

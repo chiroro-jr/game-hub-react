@@ -8,7 +8,7 @@ import {
 import usePlatforms from '@/hooks/usePlatforms'
 
 interface Props {
-  onSelectPlatform: (platform: number) => void
+  onSelectPlatform: (platformId: number) => void
 }
 
 function PlatformSelector({ onSelectPlatform }: Props) {
