@@ -2,15 +2,11 @@ import logoUrl from '../assets/images/logo.webp'
 import ColorModeSwitch from './ColorModeSwitch'
 import SearchInput from './SearchInput'
 
-interface Props {
-  onSearch: (searchTerm: string) => void
-}
-
-const NavBar = ({ onSearch }: Props) => {
+const NavBar = () => {
   return (
     <nav className="flex items-center gap-2 md:gap-4">
       <img className="h-16" src={logoUrl} alt="game hub logo" />
-      <SearchInput onSearch={onSearch} />
+      <SearchInput />
       <ColorModeSwitch />
     </nav>
   )

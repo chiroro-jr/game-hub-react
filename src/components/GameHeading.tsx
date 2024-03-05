@@ -1,20 +1,17 @@
 import useGenres from '@/hooks/useGenres'
 import usePlatforms from '@/hooks/usePlatforms'
-import { GameQuery } from '@/services/gamesService'
+import useGameQueryStore from '@/store'
 
-interface Props {
-  gameQuery: GameQuery
-}
-
-function GameHeading({ gameQuery }: Props) {
+// TODO: refactor to create useGenre and usePlatform
+function GameHeading() {
   const { data: genres } = useGenres()
-  const selectedGenre = genres.results.find(
-    (genre) => genre.id === gameQuery.genreId,
-  )
+  const genreId = useGameQueryStore((store) => store.gameQuery.genreId)
+  const selectedGenre = genres.results.find((genre) => genre.id === genreId)
 
   const { data: platforms } = usePlatforms()
+  const platformId = useGameQueryStore((store) => store.gameQuery.platformId)
   const selectedPlatform = platforms.results.find(
-    (platform) => platform.id === gameQuery.platformId,
+    (platform) => platform.id === platformId,
   )
 
   return (

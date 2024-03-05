@@ -1,17 +1,17 @@
 import { FormEvent } from 'react'
 import { Input } from './ui/input'
+import useGameQueryStore from '@/store'
 
-interface Props {
-  onSearch: (searchTerm: string) => void
-}
+// TODO: Use a ref for search input field
+function SearchInput() {
+  const setSearchTerm = useGameQueryStore((store) => store.setSearchTerm)
 
-function SearchInput({ onSearch }: Props) {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
     const formData = new FormData(event.target as HTMLFormElement)
 
-    onSearch(formData.get('searchTerm')?.toString() || '')
+    setSearchTerm(formData.get('searchTerm')?.toString() || '')
   }
 
   return (

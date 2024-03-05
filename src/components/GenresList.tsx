@@ -1,13 +1,11 @@
 import { cropImage } from '@/services/image-url'
 import useGenres from '@/hooks/useGenres'
+import useGameQueryStore from '@/store'
 
-interface Props {
-  onSelectGenre: (genreId: number) => void
-  selectedGenreId: number | null
-}
-
-function GenresList({ onSelectGenre, selectedGenreId }: Props) {
+function GenresList() {
   const { data: genres, error } = useGenres()
+  const selectedGenreId = useGameQueryStore((store) => store.gameQuery.genreId)
+  const setSelectedGenreId = useGameQueryStore((store) => store.setGenreId)
 
   if (error) return null
 
@@ -16,7 +14,7 @@ function GenresList({ onSelectGenre, selectedGenreId }: Props) {
       <h2 className="text-lg font-bold">Genres</h2>
       <ul className="space-y-2.5">
         {genres?.results.map((genre) => (
-          <li key={genre.id} onClick={() => onSelectGenre(genre.id)}>
+          <li key={genre.id} onClick={() => setSelectedGenreId(genre.id)}>
             <a
               href="#"
               className={`${selectedGenreId === genre.id && 'font-bold'} flex items-center gap-1.5 hover:underline`}

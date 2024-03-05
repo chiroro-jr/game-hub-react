@@ -6,20 +6,20 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import usePlatforms from '@/hooks/usePlatforms'
+import useGameQueryStore from '@/store'
 
-interface Props {
-  onSelectPlatform: (platformId: number) => void
-}
-
-function PlatformSelector({ onSelectPlatform }: Props) {
+function PlatformSelector() {
   const { data, error } = usePlatforms()
+  const setSelectedPlatformId = useGameQueryStore(
+    (store) => store.setPlatformId,
+  )
 
   if (error) return null
 
   return (
     <div className="space-y-1">
       <span className="text-sm">Filter by platform</span>
-      <Select onValueChange={(value) => onSelectPlatform(Number(value))}>
+      <Select onValueChange={(value) => setSelectedPlatformId(Number(value))}>
         <SelectTrigger className="w-[180px] border-none bg-card">
           <SelectValue placeholder="Select platform" />
         </SelectTrigger>

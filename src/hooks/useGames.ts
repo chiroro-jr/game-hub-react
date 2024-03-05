@@ -1,9 +1,12 @@
 import { useInfiniteQuery } from '@tanstack/react-query'
-import gamesService, { GameQuery } from '@/services/gamesService'
+import gamesService from '@/services/gamesService'
 import ms from 'ms'
+import useGameQueryStore from '@/store'
 
-const useGames = (gameQuery: GameQuery) =>
-  useInfiniteQuery({
+const useGames = () => {
+  const gameQuery = useGameQueryStore((store) => store.gameQuery)
+
+  return useInfiniteQuery({
     queryKey: ['games', gameQuery],
     queryFn: ({ pageParam }) =>
       gamesService.getAll({
@@ -21,5 +24,5 @@ const useGames = (gameQuery: GameQuery) =>
     },
     staleTime: ms('25h'),
   })
-
+}
 export default useGames

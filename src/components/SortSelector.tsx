@@ -6,16 +6,15 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import orderings from '@/data/orderings'
+import useGameQueryStore from '@/store'
 
-interface Props {
-  onSelectSortOrder: (sortOrder: string) => void
-}
+function SortSelector() {
+  const setSortOrder = useGameQueryStore((store) => store.setSortOrder)
 
-function SortSelector({ onSelectSortOrder }: Props) {
   return (
     <div className="space-y-1">
       <span className="text-sm">Order by</span>
-      <Select onValueChange={(value) => onSelectSortOrder(value)}>
+      <Select onValueChange={(value) => setSortOrder(value)}>
         <SelectTrigger className="w-[180px] border-none bg-card">
           <SelectValue placeholder="Relevance" />
         </SelectTrigger>
