@@ -1,3 +1,4 @@
+import ExpandableText from '@/components/ExpandableText'
 import useGame from '@/hooks/useGame'
 import { useParams } from 'react-router-dom'
 
@@ -14,7 +15,7 @@ function GameDetailPage() {
   return (
     <div className="space-y-2 p-[18px]">
       <h1 className="text-5xl font-bold">{game?.name}</h1>
-      <div>{game?.description_raw}</div>
+      <ExpandableText>{game?.description_raw}</ExpandableText>
     </div>
   )
 }
