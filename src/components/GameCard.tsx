@@ -1,4 +1,4 @@
-import { Game } from '@/services/gamesService'
+import { Game } from '@/entities/Game'
 import { Card, CardContent, CardTitle } from './ui/card'
 import PlatformIconsList from './PlatformIconsList'
 import { cropImage } from '@/services/image-url'
