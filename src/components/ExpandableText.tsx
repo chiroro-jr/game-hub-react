@@ -10,12 +10,12 @@ function ExpandableText({ children }: Props) {
 
   if (!children) return null
 
-  if (children.length <= 300) return <p>{children}</p>
+  if (children.length <= 300) return <p className="leading-3">{children}</p>
 
   const summary = expanded ? children : children.substring(0, limit) + '...'
 
   return (
-    <p>
+    <p className="leading-6">
       {summary}
       <button
         type="button"
