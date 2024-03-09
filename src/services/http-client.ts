@@ -24,6 +24,9 @@ class HttpClient<T> {
     axiosInstance
       .get<FetchDataResponse<T>>(this.endpoint, requestConfig)
       .then((res) => res.data)
+
+  getOne = (id: string | number) =>
+    axiosInstance.get<T>(`${this.endpoint}/${id}`).then((res) => res.data)
 }
 
 export default HttpClient

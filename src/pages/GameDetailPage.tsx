@@ -1,11 +1,20 @@
+import useGame from '@/hooks/useGame'
 import { useParams } from 'react-router-dom'
 
 function GameDetailPage() {
-  const params = useParams()
+  const { slug } = useParams()
+
+  const { data: game, error, isLoading } = useGame(slug!)
+
+  if (error) throw error
+
+  if (isLoading)
+    return <p className="py-4 text-center text-xl">Loading game...</p>
+
   return (
-    <div>
-      <div>Game details page</div>
-      <div>Showing details for Game Id = {params.id}</div>
+    <div className="space-y-2 p-[18px]">
+      <h1 className="text-5xl font-bold">{game?.name}</h1>
+      <div>{game?.description_raw}</div>
     </div>
   )
 }

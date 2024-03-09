@@ -10,9 +10,11 @@ function HomePage() {
       <div className="aside p-[18px]">
         <GenresList />
       </div>
-      <div className="main space-y-5 p-[18px]">
-        <GameHeading />
-        <div className="flex gap-6">
+      <div className="main space-y-5 py-[18px]">
+        <div className="px-[18px]">
+          <GameHeading />
+        </div>
+        <div className="flex gap-6 px-[18px]">
           <PlatformSelector />
 
           <SortSelector />

@@ -113,8 +113,3 @@
     display: block;
   }
 }
-
-.game-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-}
