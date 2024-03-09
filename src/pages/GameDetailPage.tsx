@@ -1,4 +1,5 @@
 import ExpandableText from '@/components/ExpandableText'
+import GameAttributes from '@/components/GameAttributes'
 import useGame from '@/hooks/useGame'
 import { useParams } from 'react-router-dom'
 
@@ -13,9 +14,12 @@ function GameDetailPage() {
     return <p className="py-4 text-center text-xl">Loading game...</p>
 
   return (
-    <div className="space-y-2 p-[18px]">
-      <h1 className="text-5xl font-bold">{game?.name}</h1>
-      <ExpandableText>{game?.description_raw}</ExpandableText>
+    <div className="space-y-6 p-[18px]">
+      <div className="space-y-3">
+        <h1 className="text-5xl font-bold">{game?.name}</h1>
+        <ExpandableText>{game?.description_raw}</ExpandableText>
+      </div>
+      <GameAttributes game={game} />
     </div>
   )
 }
