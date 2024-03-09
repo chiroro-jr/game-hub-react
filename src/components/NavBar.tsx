@@ -4,7 +4,7 @@ import SearchInput from './SearchInput'
 
 const NavBar = () => {
   return (
-    <nav className="flex items-center gap-2 md:gap-4">
+    <nav className="flex items-center gap-2 p-3.5 md:gap-4">
       <img className="h-16" src={logoUrl} alt="game hub logo" />
       <SearchInput />
       <ColorModeSwitch />

@@ -90,12 +90,8 @@
 
 .main-layout {
   display: grid;
-  grid-template-areas: 'nav' 'main';
+  grid-template-areas: 'main';
   grid-template-columns: 1fr;
-}
-
-.nav {
-  grid-area: nav;
 }
 
 .aside {
@@ -109,7 +105,7 @@
 
 @media screen and (min-width: theme(screens.lg)) {
   .main-layout {
-    grid-template-areas: 'nav nav' 'aside main';
+    grid-template-areas: 'aside main';
     grid-template-columns: 200px 1fr;
   }
 
