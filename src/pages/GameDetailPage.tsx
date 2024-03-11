@@ -1,5 +1,6 @@
 import ExpandableText from '@/components/ExpandableText'
 import GameAttributes from '@/components/GameAttributes'
+import GameTrailer from '@/components/GameTrailer'
 import useGame from '@/hooks/useGame'
 import { useParams } from 'react-router-dom'
 
@@ -20,6 +21,7 @@ function GameDetailPage() {
         <ExpandableText>{game?.description_raw}</ExpandableText>
       </div>
       <GameAttributes game={game} />
+      <GameTrailer gameId={game?.id || 0} />
     </div>
   )
 }
