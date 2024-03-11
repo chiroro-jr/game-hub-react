@@ -1,8 +1,12 @@
 import { FormEvent, useRef } from 'react'
 import { Input } from './ui/input'
 import useGameQueryStore from '@/store'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 function SearchInput() {
+  const location = useLocation()
+  const navigate = useNavigate()
+
   const inputRef = useRef<HTMLInputElement>(null)
   const setSearchTerm = useGameQueryStore((store) => store.setSearchTerm)
 
@@ -10,6 +14,8 @@ function SearchInput() {
     event.preventDefault()
     if (inputRef.current && inputRef.current.value)
       setSearchTerm(inputRef.current.value)
+
+    if (location.pathname !== '/') navigate('/')
   }
 
   return (
